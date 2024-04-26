@@ -40,55 +40,72 @@
     },
     {
       "id": 2,
-      "likes": 2,
-      "comments": 2,
-      "views": 2,
-      "createdDate": "2024-01-02 00:00:00",
       "author": {
         "name": "작성자 2",
         "imageUrl": "/images/profile.png"
       },
       "title": "제목2",
-      "content": "내용 2"
+      "content": "내용 2",
+      "likes": 2,
+      "views": 2,
+      "createdDate": "2024-01-02 00:00:00",
+      "comment": {
+        "count": 5,
+        "comments": [
+          {
+            "author": {
+              "name": "작성자 200",
+              "imageUrl": "/images/profile.png"
+            },
+            "content": "Hello, world! 2"
+          },
+          {
+            "author": {
+              "name": "작성자 201",
+              "imageUrl": "/images/profile.png"
+            },
+            "content": "Hello, world! 22"
+          },
+          {
+            "author": {
+              "name": "작성자 202",
+              "imageUrl": "/images/profile.png"
+            },
+            "content": "Hello, world! 23"
+          },
+          {
+            "author": {
+              "name": "작성자 203",
+              "imageUrl": "/images/profile.png"
+            },
+            "content": "QWER"
+          }
+        ]
+      }
     },
     {
       "id": 3,
-      "likes": 3,
-      "comments": 3,
-      "views": 3,
-      "createdDate": "2024-01-01 00:00:00",
       "author": {
         "name": "작성자 3",
         "imageUrl": "/images/profile.png"
       },
       "title": "제목3",
-      "content": "내용 3"
-    },
-    {
-      "id": 4,
-      "likes": 4,
-      "comments": 4,
-      "views": 4,
-      "createdDate": "2024-01-04 00:00:00",
-      "author": {
-        "name": "작성자 4",
-        "imageUrl": "/images/profile.png"
-      },
-      "title": "제목4",
-      "content": "내용 4"
-    },
-    {
-      "id": 5,
-      "likes": 5,
-      "comments": 5,
-      "views": 5,
-      "createdDate": "2024-01-05 00:00:00",
-      "author": {
-        "name": "작성자 5",
-        "imageUrl": "/images/profile.png"
-      },
-      "title": "제목5",
-      "content": "내용 5"
+      "content": "내용 3",
+      "likes": 1000,
+      "views": 10000,
+      "createdDate": "2024-01-03 00:00:00",
+      "comment": {
+        "count": 1,
+        "comments": [
+          {
+            "author": {
+              "name": "작성자 10000",
+              "imageUrl": "/images/profile.png"
+            },
+            "content": "404 NOT FOUNDDD"
+          }
+        ]
+      }
     }
   ]
 }

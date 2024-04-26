@@ -47,7 +47,7 @@ fetch('./json/posts.json')
           <span class="post-ect">좋아요</span>
           <span class="likes">${post.likes}</span>
           <span class="post-ect">댓글</span>
-          <span class="comments">${post.comments}</span>
+          <span class="comments">${post.comment.count}</span>
           <span class="post-ect">조회수</span>
           <span class="views">${post.views}</span>
           <span class="post-ect post-date" id="created-date"
