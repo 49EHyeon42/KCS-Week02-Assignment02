@@ -1,6 +1,6 @@
 // 뒤로가기 버튼 로직
-document.querySelector('.move-board').addEventListener('click', () => {
-  window.location.href = 'board.html';
+document.querySelector('.move-posts').addEventListener('click', () => {
+  window.location.href = 'posts.html';
 });
 
 // 드롭다운 메뉴 로직
@@ -75,7 +75,7 @@ document
 
     postDeleteModal.style.display = 'none';
 
-    window.location.href = 'board.html';
+    window.location.href = 'posts.html';
   });
 
 // 댓글 삭제 버튼 관련 로직

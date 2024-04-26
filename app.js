@@ -8,48 +8,25 @@ app.use(express.json());
 
 app.use(express.static('public'));
 
-app.get('/', (request, response) => {
-  response.sendFile(path.join(__dirname, '/public/board.html'));
-});
+const pages = [
+  { url: '/', file: '/public/sign-in.html' },
+  { url: '/sign-in', file: '/public/sign-in.html' },
+  { url: '/sign-up', file: '/public/sign-up.html' },
+  { url: '/posts', file: '/public/posts.html' },
+  { url: '/posts/:id', file: '/public/post.html' },
+  { url: '/edit-post', file: '/public/edit-post.html' },
+  { url: '/update-post', file: '/public/update-post.html' },
+  { url: '/update-profile', file: '/public/update-profile.html' },
+  {
+    url: '/update-profile-password',
+    file: '/public/update-profile-password.html',
+  },
+];
 
-app.get('/sign-in', (request, response) => {
-  response.sendFile(path.join(__dirname, '/public/sign-in.html'));
-});
-
-app.get('/sign-up', (request, response) => {
-  response.sendFile(path.join(__dirname, '/public/sign-up.html'));
-});
-
-app.get('/board', (request, response) => {
-  response.sendFile(path.join(__dirname, '/public/board.html'));
-});
-
-app.get('/post/id', (request, response) => {
-  response.sendFile(path.join(__dirname, '/public/post.html'));
-});
-
-app.get('/posts/:id', (request, response) => {
-  console.log('check');
-
-  response.sendFile(path.join(__dirname, '/public/post.html'));
-});
-
-app.get('/edit-post', (request, response) => {
-  response.sendFile(path.join(__dirname, '/public/edit-post.html'));
-});
-
-app.get('/update-post', (request, response) => {
-  response.sendFile(path.join(__dirname, '/public/update-post.html'));
-});
-
-app.get('/update-profile', (request, response) => {
-  response.sendFile(path.join(__dirname, '/public/update-profile.html'));
-});
-
-app.get('/update-profile-password', (request, response) => {
-  response.sendFile(
-    path.join(__dirname, '/public/update-profile-password.html')
-  );
+pages.forEach((page) => {
+  app.get(page.url, (request, response) => {
+    response.sendFile(path.join(__dirname, page.file));
+  });
 });
 
 app.listen(3000);

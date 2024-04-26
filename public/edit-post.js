@@ -20,8 +20,8 @@ function changeHelpTextAndButtonColor() {
 }
 
 // 뒤로가기 버튼 관련 로직
-document.querySelector('.move-board').addEventListener('click', () => {
-  window.location.href = 'board.html';
+document.querySelector('.move-posts').addEventListener('click', () => {
+  window.location.href = 'posts.html';
 });
 
 // 드롭 다운 관련 로직
