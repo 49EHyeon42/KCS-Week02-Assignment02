@@ -16,19 +16,17 @@ document.getElementById('edit-post-button').addEventListener('click', () => {
 /* 2주차 2-2. Fetch 적용 */
 
 // 글자 밀림 방지
-function changeTextToInnerText(text) {
-  const value = parseInt(text.innerText);
-
+function changeUnit(value) {
   if (isNaN(value) || value < 0) {
     text.innerText = 'ERROR';
   } else if (value < 1000) {
-    // 무시
+    return value;
   } else if (value < 10000) {
-    text.innerText = '1k';
+    return '1k';
   } else if (value < 100000) {
-    text.innerText = '10k';
+    return '10k';
   } else {
-    text.innerText = '100k';
+    return '100k';
   }
 }
 
@@ -45,11 +43,11 @@ fetch('./json/posts.json')
         <p class="post-title">${post.title}</p>
         <div>
           <span class="post-ect">좋아요</span>
-          <span class="likes">${post.likes}</span>
+          <span class="likes">${changeUnit(post.likes)}</span>
           <span class="post-ect">댓글</span>
-          <span class="comments">${post.comment.count}</span>
+          <span class="comments">${changeUnit(post.comment.count)}</span>
           <span class="post-ect">조회수</span>
-          <span class="views">${post.views}</span>
+          <span class="views">${changeUnit(post.views)}</span>
           <span class="post-ect post-date" id="created-date"
             >${post.createdDate}</span
           >
