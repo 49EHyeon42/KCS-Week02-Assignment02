@@ -1,6 +1,6 @@
 // 뒤로가기 버튼 로직
 document.querySelector('.move-posts').addEventListener('click', () => {
-  window.location.href = 'posts.html';
+  window.location.href = '/posts';
 });
 
 // 드롭다운 메뉴 로직
@@ -12,7 +12,7 @@ document.querySelector('.profile-image').addEventListener('click', () => {
 
 // 게시글 수정 버튼 로직
 document.querySelector('.post-update-button').addEventListener('click', () => {
-  window.location.href = 'update-post.html';
+  window.location.href = '/update-post';
 });
 
 // 조회수, 댓글수에 따라 텍스트 변경 로직
@@ -75,7 +75,7 @@ document
 
     postDeleteModal.style.display = 'none';
 
-    window.location.href = 'posts.html';
+    window.location.href = '/posts';
   });
 
 // 댓글 삭제 버튼 관련 로직

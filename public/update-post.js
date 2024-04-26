@@ -19,7 +19,7 @@ function changeHelpTextAndButtonColor() {
 
 // 뒤로가기 버튼 로직
 document.querySelector('.move-page-button').addEventListener('click', () => {
-  window.location.href = 'post.html';
+  window.location.href = '/posts';
 });
 
 // 드롭다운 메뉴 관련 로직

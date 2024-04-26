@@ -40,7 +40,7 @@ document
 
       validprofileImage2Status = true;
     } else {
-      profileImage2.src = 'images/profile.png';
+      profileImage2.src = '/images/profile.png';
 
       validprofileImage2Status = false;
     }
@@ -117,7 +117,7 @@ document
     // 스크롤 방지 해제
     document.body.classList.remove('stop-scroll');
 
-    window.location.href = 'sign-in.html';
+    window.location.href = '/sign-in';
   });
 
 /* 2주차 2-2. Fetch 적용 */

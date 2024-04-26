@@ -32,7 +32,7 @@ function changeButtonColor() {
 
 // 뒤로가기 버튼 관련 로직
 document.querySelector('.move-sign-in-button').addEventListener('click', () => {
-  window.location.href = 'sign-in.html';
+  window.location.href = '/sign-in';
 });
 
 // 프로필 사진 관련 로직
@@ -57,7 +57,7 @@ document
 
       validProfileImageStatus = true;
     } else {
-      profileImage.src = 'images/profile.png';
+      profileImage.src = '/images/profile.png';
 
       validProfileImageStatus = false;
     }
@@ -176,7 +176,7 @@ signUpForm.addEventListener('submit', (event) => {
   })
     .then((response) => {
       if (response.ok) {
-        window.location.href = 'sign-in.html';
+        window.location.href = '/sign-in';
       } else {
         response.json().then((body) => {
           alert(body.message);

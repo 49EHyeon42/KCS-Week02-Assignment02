@@ -10,7 +10,7 @@ document.querySelector('.profile-image').addEventListener('click', () => {
 });
 
 document.getElementById('edit-post-button').addEventListener('click', () => {
-  window.location.href = 'edit-post.html';
+  window.location.href = '/edit-post';
 });
 
 /* 2주차 2-2. Fetch 적용 */

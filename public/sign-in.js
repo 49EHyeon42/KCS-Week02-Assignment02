@@ -79,7 +79,7 @@ signInForm.addEventListener('submit', (event) => {
   })
     .then((response) => {
       if (response.ok) {
-        window.location.href = 'posts.html';
+        window.location.href = '/posts';
       } else {
         response.json().then((body) => {
           alert(body.message);

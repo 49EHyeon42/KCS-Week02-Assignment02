@@ -74,6 +74,6 @@ passwordCheckInput.addEventListener('change', () => {
 
 updateProfilePasswordButton.addEventListener('click', () => {
   if (validteAll()) {
-    window.location.href = 'post.html';
+    window.location.href = '/post';
   }
 });

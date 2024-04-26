@@ -21,7 +21,7 @@ function changeHelpTextAndButtonColor() {
 
 // 뒤로가기 버튼 관련 로직
 document.querySelector('.move-posts').addEventListener('click', () => {
-  window.location.href = 'posts.html';
+  window.location.href = 'posts';
 });
 
 // 드롭 다운 관련 로직
