@@ -1,5 +1,8 @@
 const postId = parseInt(window.location.href.match(/\/(\d+)$/)[1]);
 
+// 전역으로 삭제 댓글 id전달
+let deleteCommentId = -1;
+
 // 뒤로가기 버튼 로직
 document.querySelector('.move-posts').addEventListener('click', () => {
   window.location.href = '/posts';
@@ -66,6 +69,8 @@ function createCommentDeleteButton(commentId) {
 
   commentDeleteButton.addEventListener('click', () => {
     document.body.classList.add('stop-scroll');
+
+    deleteCommentId = commentId;
 
     commentDeleteModal.style.display = 'flex';
   });
@@ -168,6 +173,8 @@ document
 document
   .getElementById('comment-delete-modal-cancel-button')
   .addEventListener('click', () => {
+    deleteCommentId = -1;
+
     // 스크롤 방지 해제
     document.body.classList.remove('stop-scroll');
 
@@ -178,6 +185,9 @@ document
 document
   .getElementById('comment-delete-modal-confirm-button')
   .addEventListener('click', () => {
+    // TODO 나중에 삭제 구현
+    console.log('삭제 댓글 id: ', deleteCommentId);
+
     // 스크롤 방지 해제
     document.body.classList.remove('stop-scroll');
 
