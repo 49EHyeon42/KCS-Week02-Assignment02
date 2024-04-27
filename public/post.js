@@ -1,3 +1,5 @@
+const postId = parseInt(window.location.href.match(/\/(\d+)$/)[1]);
+
 // 뒤로가기 버튼 로직
 document.querySelector('.move-posts').addEventListener('click', () => {
   window.location.href = '/posts';
@@ -41,6 +43,78 @@ function createPostDeleteButton(postId) {
   });
 
   return postDeleteButton;
+}
+
+function createCommentUpdateButton(commentId) {
+  const commentUpdateButton = document.createElement('button');
+  commentUpdateButton.className = 'comment-button';
+  commentUpdateButton.innerText = '수정';
+  
+  commentUpdateButton.addEventListener('click', () => {
+    alert(`postId: ${postId}, commentId: ${commentId}, 미구현!`);
+  });
+
+  return commentUpdateButton;
+}
+
+const commentDeleteModal = document.getElementById('comment-delete-modal');
+
+function createCommentDeleteButton(commentId) {
+  const commentDeleteButton = document.createElement('button');
+  commentDeleteButton.classList.add('comment-button', 'comment-delete-button');
+  commentDeleteButton.innerText = '삭제';
+
+  commentDeleteButton.addEventListener('click', () => {
+    document.body.classList.add('stop-scroll');
+
+    commentDeleteModal.style.display = 'flex';
+  });
+
+  return commentDeleteButton;
+}
+
+function createCommentContainer(commentId, author, createdDate, content) {
+  const commentContainer = document.createElement('div');
+  commentContainer.className = 'comment-container';
+  
+  const commentInfo = document.createElement('div');
+  commentInfo.className = 'comment-info';
+
+  const commentAuthorImage = document.createElement('img');
+  commentAuthorImage.className = 'comment-author-image';
+  commentAuthorImage.src = `${author.imageUrl}`;
+
+  commentInfo.appendChild(commentAuthorImage);
+
+  const commentAuthorName = document.createElement('span');
+  commentAuthorName.className = 'comment-author-name';
+  commentAuthorName.innerText = `${author.name}`;
+
+  commentInfo.appendChild(commentAuthorName);
+
+  const commentCreatedDate = document.createElement('span');
+  commentCreatedDate.className = 'comment-date-text';
+  commentCreatedDate.innerText = `${createdDate}`;
+
+  commentInfo.appendChild(commentCreatedDate);
+
+  const commentButtonContainer = document.createElement('div');
+  commentButtonContainer.className = 'comment-button-container';
+
+  commentButtonContainer.appendChild(createCommentUpdateButton(commentId));
+  commentButtonContainer.appendChild(createCommentDeleteButton(commentId));
+
+  commentInfo.appendChild(commentButtonContainer);
+
+  commentContainer.appendChild(commentInfo);
+
+  const commentContent = document.createElement('p');
+  commentContent.className = 'comment-content';
+  commentContent.innerText = `${content}`;
+
+  commentContainer.appendChild(commentContent);
+
+  return commentContainer;
 }
 
 function changeUnit(value) {
@@ -94,7 +168,7 @@ document
 const commentDeleteButtons = document.querySelectorAll(
   '.comment-delete-button'
 );
-const commentDeleteModal = document.getElementById('comment-delete-modal');
+
 
 commentDeleteButtons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -128,11 +202,12 @@ document
     commentDeleteModal.style.display = 'none';
   });
 
-const postId = parseInt(window.location.href.match(/\/(\d+)$/)[1]);
 const postHeader = document.getElementById('post-header');
 const postBody = document.getElementById('post-body');
 const postViews = document.getElementById('views-value-text');
 const postComments = document.getElementById('comments-value-text');
+
+const commentsConainer = document.getElementById('comments-container');
 
 fetch('/json/posts.json')
 .then(response => {
@@ -192,6 +267,10 @@ fetch('/json/posts.json')
 
     postViews.innerText = `${changeUnit(foundPost.views)}`;
     postComments.innerText = `${changeUnit(foundPost.comment.count)}`;
+
+    foundPost.comment.comments.forEach(comment => {
+      commentsConainer.appendChild(createCommentContainer(comment.id, comment.author, comment.createdDate, comment.content));
+    });
   })
 })
 .catch(error => {
