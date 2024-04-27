@@ -15,7 +15,7 @@ document.querySelector('.profile-image').addEventListener('click', () => {
   profileImageDropdown.classList.toggle('show');
 });
 
-function createPostUpdateButton(postId) {
+function createPostUpdateButton() {
   const postUpdateButton = document.createElement('button');
   postUpdateButton.className = 'post-button';
   postUpdateButton.id = 'post-update-button';
@@ -32,7 +32,7 @@ function createPostUpdateButton(postId) {
 // 게시글 삭제 버튼 관련 로직
 const postDeleteModal = document.getElementById('post-delete-modal');
 
-function createPostDeleteButton(postId) {
+function createPostDeleteButton() {
   const postDeleteButton = document.createElement('button');
   postDeleteButton.className = 'post-button';
   postDeleteButton.id = 'post-delete-button';
@@ -241,8 +241,8 @@ fetch('/json/posts.json')
 
     postInfoContainer.appendChild(postCreatedDate);
 
-    postInfoContainer.appendChild(createPostUpdateButton(postId));
-    postInfoContainer.appendChild(createPostDeleteButton(postId));
+    postInfoContainer.appendChild(createPostUpdateButton());
+    postInfoContainer.appendChild(createPostDeleteButton());
 
     postHeader.appendChild(postInfoContainer);
 
