@@ -43,25 +43,19 @@ function createPostDeleteButton(postId) {
   return postDeleteButton;
 }
 
-// 조회수, 댓글수에 따라 텍스트 변경 로직
-function changeTextToInnerText(text) {
-  const value = parseInt(text.innerText);
-
+function changeUnit(value) {
   if (isNaN(value) || value < 0) {
     text.innerText = 'ERROR';
   } else if (value < 1000) {
-    // 무시
+    return value;
   } else if (value < 10000) {
-    text.innerText = '1k';
+    return '1k';
   } else if (value < 100000) {
-    text.innerText = '10k';
+    return '10k';
   } else {
-    text.innerText = '100k';
+    return '100k';
   }
 }
-
-changeTextToInnerText(document.getElementById('views-value-text'));
-changeTextToInnerText(document.getElementById('comments-value-text'));
 
 // 댓글 입력 관련 로직
 const commentInput = document.getElementById('comment-input');
@@ -137,6 +131,8 @@ document
 const postId = parseInt(window.location.href.match(/\/(\d+)$/)[1]);
 const postHeader = document.getElementById('post-header');
 const postBody = document.getElementById('post-body');
+const postViews = document.getElementById('views-value-text');
+const postComments = document.getElementById('comments-value-text');
 
 fetch('/json/posts.json')
 .then(response => {
@@ -193,6 +189,9 @@ fetch('/json/posts.json')
     postContent.innerText = `${foundPost.content}`;
 
     postBody.appendChild(postContent);
+
+    postViews.innerText = `${changeUnit(foundPost.views)}`;
+    postComments.innerText = `${changeUnit(foundPost.comment.count)}`;
   })
 })
 .catch(error => {
