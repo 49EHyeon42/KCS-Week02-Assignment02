@@ -73,14 +73,14 @@ body {
   padding: 60px 0;
 }
 
-.content-title {
+#post-title {
   text-align: left;
 
   font-size: 24px;
   font-weight: bold;
 }
 
-.dummy-container {
+#post-info-container {
   display: flex;
   align-items: center;
   /* 자식 요소들을 수직 가운데 정렬 */
@@ -90,7 +90,17 @@ body {
   margin-right: 10px;
 }
 
-.post-date {
+#post-author-image {
+  width: 36px;
+  height: 36px;
+  margin-right: 10px;
+}
+
+#post-author-name {
+  font-weight: bold;
+}
+
+#post-created-date {
   margin-left: 50px;
 }
 
@@ -107,7 +117,7 @@ body {
   background-color: transparent;
 }
 
-.post-update-button {
+#post-update-button {
   margin-left: 116px;
 }
 
