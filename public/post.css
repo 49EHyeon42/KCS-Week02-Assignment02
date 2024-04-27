@@ -86,9 +86,9 @@ body {
   /* 자식 요소들을 수직 가운데 정렬 */
 }
 
-.image {
-  margin-right: 10px;
-}
+/* .image {
+  
+} */
 
 #post-author-image {
   width: 36px;
@@ -129,6 +129,14 @@ body {
 
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+#post-image {
+  margin-right: 10px;
+  margin-bottom: 30px;
+  
+  width: 544px;
+  height: 306px;
 }
 
 .etc-button {

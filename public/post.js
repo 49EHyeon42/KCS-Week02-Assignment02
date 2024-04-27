@@ -136,7 +136,7 @@ document
 
 const postId = parseInt(window.location.href.match(/\/(\d+)$/)[1]);
 const postHeader = document.getElementById('post-header');
-const postInfoContainer = document
+const postBody = document.getElementById('post-body');
 
 fetch('/json/posts.json')
 .then(response => {
@@ -182,6 +182,17 @@ fetch('/json/posts.json')
     postInfoContainer.appendChild(createPostDeleteButton(postId));
 
     postHeader.appendChild(postInfoContainer);
+
+    const postImage = document.createElement('img');
+    postImage.id = 'post-image';
+    postImage.src = `${foundPost.imageUrl}`;
+
+    postBody.appendChild(postImage);
+
+    const postContent = document.createElement('p');
+    postContent.innerText = `${foundPost.content}`;
+
+    postBody.appendChild(postContent);
   })
 })
 .catch(error => {
