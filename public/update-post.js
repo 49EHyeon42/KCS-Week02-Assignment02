@@ -1,3 +1,5 @@
+const postId = parseInt(window.location.href.match(/\/(\d+)$/)[1]);
+
 // status
 let validTitleStatus = true;
 let validContentStatus = true;
@@ -51,10 +53,26 @@ contentInput.addEventListener('change', () => {
   changeHelpTextAndButtonColor();
 });
 
-/* 2주차 2-2. Fetch 적용 */
-fetch('./json/update-post.json')
-  .then((response) => response.json())
+fetch('/json/posts.json')
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error();
+    }
+
+    return response.json();
+  })
   .then((json) => {
-    titleInput.value = json.title;
-    contentInput.value = json.content;
+    const foundPost = json.posts.find(post => post.id === postId);
+
+    if (!foundPost) {
+      throw new Error();
+    }
+
+    titleInput.value = foundPost.title;
+    contentInput.value = foundPost.content;
+  })
+  .catch(error => {
+    alert(error.message);
+
+    console.error(error);
   });
