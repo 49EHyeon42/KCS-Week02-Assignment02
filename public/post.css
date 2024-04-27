@@ -210,6 +210,10 @@ input[type='submit'] {
   margin-left: 45px;
 }
 
+.comment-button-container {
+  margin-left: 180px;
+}
+
 .comment-button {
   margin-left: 3px;
   margin-right: 3px;
