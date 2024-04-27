@@ -7,6 +7,7 @@
         "imageUrl": "/images/profile.png"
       },
       "title": "제목1",
+      "imageUrl": "/images/profile.png",
       "content": "내용 1",
       "likes": 999,
       "views": 999,
@@ -19,6 +20,7 @@
               "name": "작성자 100",
               "imageUrl": "/images/profile.png"
             },
+            "createdDate": "2024-01-01 00:00:00",
             "content": "Hello, world!"
           },
           {
@@ -26,6 +28,7 @@
               "name": "작성자 101",
               "imageUrl": "/images/profile.png"
             },
+            "createdDate": "2024-01-01 00:00:01",
             "content": "Hello, world! 2"
           },
           {
@@ -33,6 +36,7 @@
               "name": "작성자 102",
               "imageUrl": "/images/profile.png"
             },
+            "createdDate": "2024-01-01 00:00:03",
             "content": "Hello, world!3 "
           }
         ]
@@ -45,6 +49,7 @@
         "imageUrl": "/images/profile.png"
       },
       "title": "제목2",
+      "imageUrl": "/images/profile.png",
       "content": "내용 2",
       "likes": 2,
       "views": 2,
@@ -57,6 +62,7 @@
               "name": "작성자 200",
               "imageUrl": "/images/profile.png"
             },
+            "createdDate": "2024-01-01 00:00:04",
             "content": "Hello, world! 2"
           },
           {
@@ -64,6 +70,7 @@
               "name": "작성자 201",
               "imageUrl": "/images/profile.png"
             },
+            "createdDate": "2024-01-01 00:00:05",
             "content": "Hello, world! 22"
           },
           {
@@ -71,6 +78,7 @@
               "name": "작성자 202",
               "imageUrl": "/images/profile.png"
             },
+            "createdDate": "2024-01-01 00:00:06",
             "content": "Hello, world! 23"
           },
           {
@@ -78,6 +86,7 @@
               "name": "작성자 203",
               "imageUrl": "/images/profile.png"
             },
+            "createdDate": "2024-01-01 00:00:07",
             "content": "QWER"
           }
         ]
@@ -90,6 +99,7 @@
         "imageUrl": "/images/profile.png"
       },
       "title": "제목3",
+      "imageUrl": "/images/profile.png",
       "content": "내용 3",
       "likes": 1000,
       "views": 10000,
@@ -102,6 +112,7 @@
               "name": "작성자 10000",
               "imageUrl": "/images/profile.png"
             },
+            "createdDate": "2024-01-01 00:00:10",
             "content": "404 NOT FOUNDDD"
           }
         ]

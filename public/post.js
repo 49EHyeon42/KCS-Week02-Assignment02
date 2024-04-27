@@ -79,14 +79,21 @@ document
   });
 
 // 댓글 삭제 버튼 관련 로직
-const commentDeleteButton = document.getElementById('comment-delete-button');
+const commentDeleteButtons = document.querySelectorAll(
+  '.comment-delete-button'
+);
 const commentDeleteModal = document.getElementById('comment-delete-modal');
 
-commentDeleteButton.addEventListener('click', () => {
-  // 스크롤 방지
-  document.body.classList.add('stop-scroll');
+commentDeleteButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    // Q: 댓글 id는 어떻게 받지?
+    // A: 버튼을 생성할 때, 삭제 이벤트도 같이 만들어 id를 미리 넣어둔다.
 
-  commentDeleteModal.style.display = 'flex';
+    // 스크롤 방지
+    document.body.classList.add('stop-scroll');
+
+    commentDeleteModal.style.display = 'flex';
+  });
 });
 
 // 댓글 삭제 버튼, 취소
