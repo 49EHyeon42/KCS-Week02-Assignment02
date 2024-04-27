@@ -10,10 +10,38 @@ document.querySelector('.profile-image').addEventListener('click', () => {
   profileImageDropdown.classList.toggle('show');
 });
 
-// 게시글 수정 버튼 로직
-// document.getElementById('post-update-button').addEventListener('click', () => {
-//   window.location.href = '/update-post';
-// });
+function createPostUpdateButton(postId) {
+  const postUpdateButton = document.createElement('button');
+  postUpdateButton.className = 'post-button';
+  postUpdateButton.id = 'post-update-button';
+  postUpdateButton.innerText = '수정';
+
+  postUpdateButton.addEventListener('click', () => {
+    // Q: query string 말고 다른 방법 없나?
+    window.location.href = `/update-post/${postId}`;
+  });
+
+  return postUpdateButton;
+}
+
+// 게시글 삭제 버튼 관련 로직
+const postDeleteModal = document.getElementById('post-delete-modal');
+
+function createPostDeleteButton(postId) {
+  const postDeleteButton = document.createElement('button');
+  postDeleteButton.className = 'post-button';
+  postDeleteButton.id = 'post-delete-button';
+  postDeleteButton.innerText = '삭제';
+
+  postDeleteButton.addEventListener('click', () => {
+  // 스크롤 방지
+  document.body.classList.add('stop-scroll');
+
+  postDeleteModal.style.display = 'flex';
+  });
+
+  return postDeleteButton;
+}
 
 // 조회수, 댓글수에 따라 텍스트 변경 로직
 function changeTextToInnerText(text) {
@@ -45,16 +73,6 @@ commentInput.addEventListener('change', () => {
   commentSubmitButton.style.backgroundColor =
     value.length == 0 ? '#ACA0EB' : '#7F6AEE';
 });
-
-// 게시글 삭제 버튼 관련 로직
-// const postDeleteModal = document.getElementById('post-delete-modal');
-
-// document.getElementById('post-delete-button').addEventListener('click', () => {
-//   // 스크롤 방지
-//   document.body.classList.add('stop-scroll');
-
-//   postDeleteModal.style.display = 'flex';
-// });
 
 // 게시글 삭제 버튼, 취소
 document
@@ -160,7 +178,8 @@ fetch('/json/posts.json')
 
     postInfoContainer.appendChild(postCreatedDate);
 
-    // TODO 버튼 다음에
+    postInfoContainer.appendChild(createPostUpdateButton(postId));
+    postInfoContainer.appendChild(createPostDeleteButton(postId));
 
     postHeader.appendChild(postInfoContainer);
   })

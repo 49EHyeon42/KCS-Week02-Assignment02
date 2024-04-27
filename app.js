@@ -15,7 +15,7 @@ const pages = [
   { url: '/posts', file: '/public/posts.html' },
   { url: '/posts/:id', file: '/public/post.html' },
   { url: '/edit-post', file: '/public/edit-post.html' },
-  { url: '/update-post', file: '/public/update-post.html' },
+  { url: '/update-post/:id', file: '/public/update-post.html' },
   { url: '/update-profile', file: '/public/update-profile.html' },
   {
     url: '/update-profile-password',
@@ -30,3 +30,6 @@ pages.forEach((page) => {
 });
 
 app.listen(3000);
+
+// TODO
+// 2024-04-27: update-post/:id가 맞을까?
